@@ -73,7 +73,6 @@ const Login = () => {
       
         return (
           <Log onClick={togglePopup}>
-            {showPopup ? 'Hide Popup' : 'Show Popup'}
             Login
           </Log>
         )
