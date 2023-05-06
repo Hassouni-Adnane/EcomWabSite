@@ -1,21 +1,20 @@
-import react from 'react'
-import Home from './pages/Home.jsx'
+import React, { useState } from 'react'
 import PopupContext from './components/PopupContext.jsx'
-import FormBoxLogin from './components/formBoxLogin.jsx'
-import { useState } from 'react'
-//const { showPopup } = useContext(PopupContext);
+import Home from './pages/Home.jsx'
+import FormBoxLogin from './components/FormBoxLogin.jsx'
+
 function App() {
-  
   const [showPopup, setShowPopup] = useState(false);
 
   const togglePopup = () => {
-    setShowPopup((prevState) => !prevState);}
+    setShowPopup((prevState) => !prevState);
+  }
   
   return (
     <div>
-      <Home/>
       <PopupContext.Provider value={{ showPopup, togglePopup }}>
-      <FormBoxLogin />
+        <Home />
+        <FormBoxLogin />
       </PopupContext.Provider>
     </div>
   )

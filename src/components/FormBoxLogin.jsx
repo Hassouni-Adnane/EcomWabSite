@@ -1,7 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
-//import PopupContext from './PopupContext'
-
+import PopupContext from './PopupContext'
 
 const Container = styled.div`
     
@@ -20,22 +19,23 @@ const Input_box = styled.div`
 `
 
 const FormBoxLogin = () => {
+  const { showPopup } = useContext(PopupContext);
   return (
-    
-    <Container>
+    showPopup ?     <Container>
       <Title />
       <form action=''>
         <Input_box>
             <input type='email' id='emailIn' pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="" required />
-            <label for="emailIn">Email</label>
+            <label htmlFor="emailIn">Email</label>
         </Input_box>
         <Input_box>
-            <input type="password" id="pswrdIn" value="" name="password" autocomplete="off" maxlength="20" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$" required />
-            <label for="pswrdIn">Password</label>
+            <input type="password" id="pswrdIn" value="" name="password" autoComplete="off" maxLength="20" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$" required />
+            <label htmlFor="pswrdIn">Password</label>
         </Input_box>
-        <button type="submit" class="btn">Sign in</button>
+        <button type="submit" className="btn">Sign in</button>
       </form>
-    </Container>
+    </Container> : null
+
   )
 }
 

@@ -1,7 +1,5 @@
-import React from 'react'
 import React, { useContext } from 'react';
 import styled from 'styled-components'
-import PopupContext from './PopupContext'
 
 const Log = styled.button`
     padding: 0.6em 2em;
@@ -66,10 +64,9 @@ const Log = styled.button`
 `
 
 
-const Login = () => {
+const Login = ({togglePopup }) => {
    
     const handleLoginClick = () => {
-        const { showPopup, togglePopup } = useContext(PopupContext);
       
         return (
           <Log onClick={togglePopup}>
