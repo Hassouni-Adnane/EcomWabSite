@@ -1,0 +1,426 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu+Condensed&family=Ubuntu:wght@300&display=swap');
+
+/*initialize elements paddings and margins*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* include padding and margin in the calculation of width height*/
+}
+
+*,
+*::before,
+*::after {
+  /* ::before, ::after insert text before and after html elements */
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url('./images/background.png');
+  background-size: cover;
+  background-position: center;
+  color: #1b1a1a;
+}
+
+/* Styles de base pour la barre de navigation */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* Largeur de la barre de navigation */
+  padding: 20px 100px;
+  /* Espacement intérieur de la barre de navigation */
+  display: flex;
+  justify-content: space-between;
+  /* Pour aligner le logo à gauche et le bouton à droite */
+  align-items: center;
+  /* Pour aligner les éléments verticalement */
+  color: #1b1a1a;
+  /* Couleur du texte des liens */
+  z-index: 99;
+  /*z-index property specifies the stack order of an element.*/
+
+}
+
+/* Styles pour le logo */
+.logo {
+  font-size: 2em;
+  font-weight: bold;
+  margin: 0;
+}
+
+.logo a {
+  color: #1b1a1a;
+  text-decoration: none;
+  /*Prevent text selection*/
+  -webkit-user-select: none;
+  /* Safari */
+  -ms-user-select: none;
+  /* IE 10 and IE 11 */
+  user-select: none;
+  /* Standard syntax */
+}
+
+h2 {
+  font-family: 'Ubuntu Condensed', sans-serif;
+}
+
+
+/* Styles pour les liens de la barre de navigation */
+.navigation ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  /* Pour aligner les éléments verticalement */
+}
+
+.navigation li {
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+}
+
+.navigation a {
+  position: relative;
+  color: #1b1a1a;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 40px;
+  display: block;
+  font-size: 1rem;
+}
+
+
+.navigation .btnLogin-popup {
+  margin-left: 25px;
+}
+
+.navigation a::after {
+  content: ' ';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 3px;
+  background: #1b1a19;
+  border-radius: 5px;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: .5s;
+
+
+}
+
+.btnLogin-popup {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+
+}
+
+.btnLogin-popup:before {
+  content: "";
+  background: linear-gradient(45deg,
+      #ff0000,
+      #ff7300,
+      #fffb00,
+      #48ff00,
+      #00ffd5,
+      #002bff,
+      #7a00ff,
+      #ff00c8,
+      #ff0000);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-btnLogin-popup 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-btnLogin-popup {
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 400% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.btnLogin-popup:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+.btnLogin-popup:disabled {
+  pointer-events: none;
+}
+
+.btnLogin-popup:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.btnLogin-popup:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+.navigation a:hover::after {
+  transform-origin: right;
+  transform: scaleX(1);
+}
+
+.container {
+  position: relative;
+  width: 400px;
+  height: 440px;
+  background-color: whitesmoke;
+  z-index: 100;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transform: scale(0);
+  transition: transform .5s ease, height .2s ease;
+
+}
+
+.container.active-popup {
+  transform: scale(1);
+}
+
+.container.active {
+  height: 520px;
+}
+
+.container .form-box {
+  width: 100%;
+  padding: 40px;
+}
+
+.container .form-box.login {
+  transition: transform .18s ease;
+  transform: translateX(0);
+}
+
+.container.active .form-box.login {
+  transition: none;
+  transform: translate(-400px);
+}
+
+.container .form-box.register {
+  position: absolute;
+  transition: none;
+  transform: translate(400px);
+}
+
+.container.active .form-box.register {
+  transition: transform .18s ease;
+  transform: translateX(0);
+}
+
+.container .close-i {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background-color: #1b1a19;
+  font-size: 2em;
+  color: whitesmoke;
+  display: flex;
+  align-items: center;
+  border-bottom-left-radius: 20px;
+  cursor: pointer;
+  z-index: 100;
+  padding-left: 3px;
+}
+
+.form-box h2 {
+  font-size: 2em;
+  color: #1b1a1a;
+  text-align: center;
+}
+
+.input-box {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  border-bottom: 2px solid #1b1a1a;
+  margin: 30px 0;
+}
+
+.input-box label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  font-size: 1em;
+  color: #1b1a19;
+  font-weight: 500;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+  top: -5px;
+}
+
+.input-box input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  color: #222;
+  font-weight: 520;
+  padding: 0 35px 0 5px;
+}
+
+.input-box .icon {
+  position: absolute;
+  right: 8px;
+  font-size: 1.2em;
+  color: #222;
+  line-height: 57px;
+}
+
+.remember-forget {
+  font-size: .9em;
+  color: #1b1a1a;
+  font-weight: 500;
+  margin: -15px 0 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.remember-forget label input {
+  accent-color: #ff0046;
+  margin-right: 5px;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.2);
+  font-size: 1px;
+  border: 2px #ccc;
+  background-color: #f8f8f8;
+}
+
+
+
+
+
+
+
+
+/*.remember-forget a:not(.btn) {
+  color: #363636;
+  font-family: "MaisonNeue-Bold",Helvetica,Arial;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  display: inline-block;
+  font-size: 1em;
+}*/
+
+.remember-forget a {
+  color: #000;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  padding: 0 .15em;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  z-index: 1;
+}
+
+.remember-forget a:hover {
+  color: #363636;
+  transform: translateY(-1px);
+  text-decoration: underline;
+}
+
+.remember-forget a:active {
+  color: #d22855;
+  transform: translateY(0px);
+}
+
+.btn {
+  width: 100%;
+  height: 45%;
+  padding: .8em 0;
+  margin: 5px auto;
+  background-color: #1b1a19;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  color: #fff;
+  font-weight: 500;
+}
+
+.login-register {
+  font-size: .9em;
+  color: #222;
+  text-align: center;
+  font-weight: 500;
+  margin: 25px 0 10px;
+
+}
+
+.login-register p a {
+  color: #363636;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.login-register p a:hover {
+  text-decoration: underline;
+}
