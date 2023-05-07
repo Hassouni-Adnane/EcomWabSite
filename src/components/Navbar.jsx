@@ -64,7 +64,13 @@ const MenuItem = styled.div`
     padding: 0px 15px;
     height: 50%;
 `
-const Navbar = () => {
+const Navbar = ({setIsModalRegisterVisible, setIsModalVisibleLogin}) => {
+    const openModalRegister = () => {
+        setIsModalRegisterVisible(true);
+      };
+    const openModalLogin = () => {
+        setIsModalVisibleLogin(true);
+      };
   return (
     <Container>
         <Wrapper>
@@ -80,8 +86,8 @@ const Navbar = () => {
             <Logo src={logo}/>
             
             <Right>
-                <MenuItem>Register</MenuItem>
-                <MenuItem>Sign In</MenuItem>
+                <MenuItem><button onClick={openModalRegister}>Register</button></MenuItem>
+                <MenuItem><button onClick={openModalLogin}>Login</button></MenuItem>
                 <MenuItem>
                 <Badge badgeContent={4} color="primary">
                     <ShoppingCartOutlinedIcon/>
