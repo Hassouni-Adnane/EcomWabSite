@@ -79,10 +79,15 @@ const Link = styled.a`
   cursor: pointer;
 `;
 
-const Login = ({setIsModalVisibleLogin}) => {
+const Login = ({setIsModalVisibleLogin, setIsModalRegisterVisible}) => {
   const closeModalLogin = () => {
     setIsModalVisibleLogin(false);
   };
+  const openModalRegister = () => {
+    setIsModalRegisterVisible(true);
+    setIsModalVisibleLogin(false);
+  };
+  
   return (
     <Container>
       <Wrapper>
@@ -96,7 +101,7 @@ const Login = ({setIsModalVisibleLogin}) => {
         </Form>
         <ButtonContainer>
             <p>Don't have an account?</p>
-            <SwitchRegister>Register</SwitchRegister>
+            <SwitchRegister onClick={openModalRegister}>Register</SwitchRegister>
       </ButtonContainer>
       <CloseButton onClick={closeModalLogin}>Close</CloseButton>
       </Wrapper>

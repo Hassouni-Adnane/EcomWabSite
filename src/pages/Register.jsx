@@ -1,5 +1,6 @@
+import { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-
 
 const Container = styled.div`
   width: 100vw;
@@ -79,31 +80,74 @@ cursor: pointer;
 
 
 
-const Register = ({setIsModalRegisterVisible}) => {
+const Register = ({setIsModalRegisterVisible, setIsModalVisibleLogin}) => {
+
+  const [name, setName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    // Make an HTTP request to your PHP file here
+    // You can use the Fetch API or Axios to do this
+
+    // For example, using the Fetch API:
+    fetch("//c/wamp64/www/BDW/TP/ecomBackEnd/handelingNewCommers.php", {
+      method: "POST",
+      body: JSON.stringify({
+        name,
+        lastName,
+        username,
+        email,
+        password,
+      }),
+    })
+    .then((response) => response.json())
+    .then((data) => console.log(data))
+    .catch((error) => console.error(error));
+  }
+
     const closeModalRegister = () => {
         setIsModalRegisterVisible(false);
+      };
+    const openModalLogin = () => {
+      setIsModalVisibleLogin(true);
+      setIsModalRegisterVisible(false);
+        
       };
       
   return (
     <Container>
       <Wrapper>
         <Title>CREATE AN ACCOUNT</Title>
-        <Form>
-          <Input placeholder="name" />
-          <Input placeholder="last name" />
-          <Input placeholder="username" />
-          <Input placeholder="email" />
-          <Input placeholder="password" />
-          <Input placeholder="confirm password" />
+        <Form onSubmit={handleSubmit}>
+          <Input placeholder="name" 
+          value={name}
+          onChange={(event) => setName(event.target.value)}/>
+          <Input placeholder="last name" 
+          value={lastName}
+          onChange={(event) => setLastName(event.target.value)}/>
+          <Input placeholder="username" 
+          value={username}
+          onChange={(event) => setUsername(event.target.value)}/>
+          <Input placeholder="email" 
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}/>
+          <Input placeholder="password" 
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}/>
           <Agreement>
-            By creating an account, I consent to the processing of my personal
-            data in accordance with the <b>PRIVACY POLICY</b>
+            Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla 
+            Bla Bla Bla Bla <b>PRIVACY POLICY</b>
           </Agreement>
           <Button>CREATE</Button>
         </Form>
         <ButtonContainer>
             <p>Alredy have an account?</p>
-            <SwitchLogin>Login</SwitchLogin>
+            <SwitchLogin onClick={openModalLogin}>Login</SwitchLogin>
         </ButtonContainer>
         <CloseButton onClick={closeModalRegister}>Close</CloseButton>
       </Wrapper>

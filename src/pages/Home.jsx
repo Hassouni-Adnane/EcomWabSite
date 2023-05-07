@@ -16,6 +16,7 @@ const ModalBackground = styled.div`
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
+  //transition: all 0.5s cubic-bezier();
 `;
 
 
@@ -31,10 +32,10 @@ const Home = () => {
       <Slider />
       <Products />
       <ModalBackground visibleRegister={isModalRegisterVisible}>
-          <Register setIsModalRegisterVisible={setIsModalRegisterVisible}/>
+          <Register setIsModalRegisterVisible={setIsModalRegisterVisible} setIsModalVisibleLogin={setIsModalVisibleLogin}/>
       </ModalBackground>
       <ModalBackground  visibleLogin={isModalVisibleLogin}>
-        <Login setIsModalVisibleLogin={setIsModalVisibleLogin} />
+        <Login setIsModalRegisterVisible={setIsModalRegisterVisible} setIsModalVisibleLogin={setIsModalVisibleLogin} />
       </ModalBackground>
     </div>
   )
