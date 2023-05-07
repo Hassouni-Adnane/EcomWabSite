@@ -1,6 +1,8 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 import PopupContext from './PopupContext'
+import { useState, useContext } from 'react'
+
 
 const Container = styled.div`
     
