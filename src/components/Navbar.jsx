@@ -3,6 +3,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import Badge from '@mui/material/Badge';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import logo from '../images/Ezan\ Shop.png';
+import IconButton from '@mui/material/IconButton';
 
 const Container = styled.div`
     padding: 0;
@@ -64,13 +65,17 @@ const MenuItem = styled.div`
     padding: 0px 15px;
     height: 50%;
 `
-const Navbar = ({setIsModalRegisterVisible, setIsModalVisibleLogin}) => {
+const Navbar = ({setIsModalRegisterVisible, setIsModalVisibleLogin, setIsModalVisibleCart}) => {
     const openModalRegister = () => {
         setIsModalRegisterVisible(true);
       };
     const openModalLogin = () => {
         setIsModalVisibleLogin(true);
       };
+    const openModalCart = () => {
+        setIsModalVisibleCart(true);
+        
+    };
   return (
     <Container>
         <Wrapper>
@@ -89,9 +94,11 @@ const Navbar = ({setIsModalRegisterVisible, setIsModalVisibleLogin}) => {
                 <MenuItem><button onClick={openModalRegister}>Register</button></MenuItem>
                 <MenuItem><button onClick={openModalLogin}>Login</button></MenuItem>
                 <MenuItem>
-                <Badge badgeContent={4} color="primary">
-                    <ShoppingCartOutlinedIcon/>
-                </Badge>
+                <IconButton onClick={openModalCart}>
+                    <Badge badgeContent={4} color="primary">
+                        <ShoppingCartOutlinedIcon/>
+                    </Badge>
+                </IconButton>
                 </MenuItem>
             </Right>
 

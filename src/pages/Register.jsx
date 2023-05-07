@@ -95,8 +95,9 @@ const Register = ({setIsModalRegisterVisible, setIsModalVisibleLogin}) => {
     // You can use the Fetch API or Axios to do this
 
     // For example, using the Fetch API:
-    fetch("//c/wamp64/www/BDW/TP/ecomBackEnd/handelingNewCommers.php", {
+    fetch("http://localhost/BDW/TP/ecomBackEnd/handelingNewCommers.php", {
       method: "POST",
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         name,
         lastName,
@@ -105,9 +106,9 @@ const Register = ({setIsModalRegisterVisible, setIsModalVisibleLogin}) => {
         password,
       }),
     })
-    .then((response) => response.json())
+    /*.then((response) => response.json())
     .then((data) => console.log(data))
-    .catch((error) => console.error(error));
+    .catch((error) => console.error(error));*/
   }
 
     const closeModalRegister = () => {
