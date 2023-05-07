@@ -3,8 +3,6 @@ import SearchIcon from '@mui/icons-material/Search';
 import Badge from '@mui/material/Badge';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import logo from '../images/Ezan\ Shop.png';
-import Login from './LoginBtn';
-import { useContext } from 'react';
 
 const Container = styled.div`
     padding: 0;
@@ -67,7 +65,6 @@ const MenuItem = styled.div`
     height: 50%;
 `
 const Navbar = () => {
-    const { togglePopup } = useContext(PopupContext);
   return (
     <Container>
         <Wrapper>
@@ -84,7 +81,7 @@ const Navbar = () => {
             
             <Right>
                 <MenuItem>Register</MenuItem>
-                <MenuItem><Login togglePopup={togglePopup}/></MenuItem>
+                <MenuItem>Sign In</MenuItem>
                 <MenuItem>
                 <Badge badgeContent={4} color="primary">
                     <ShoppingCartOutlinedIcon/>
