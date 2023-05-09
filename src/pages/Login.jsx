@@ -29,11 +29,25 @@ margin-left: 20px;
 color: black;
 cursor: pointer;
 `
+
 const ButtonContainer = styled.div`
     display: flex;
     //justify-content: space-between;
     margin-top: 5px;
     margin-bottom: 5px;
+`
+
+const AdminLogin = styled.button`
+//width: 40%;
+border-bottom:solide gray;
+border-top: none;
+border-left: none;
+border-right: none;
+margin-left: 20px;
+//padding: 10px;
+//background-color: #67e8e8;
+color: black;
+cursor: pointer;
 `
 
 const Title = styled.h1`
@@ -97,13 +111,17 @@ const Login = ({setIsModalVisibleLogin, setIsModalRegisterVisible}) => {
           <Input placeholder="password" />
           <Button>LOGIN</Button>
           <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
-          <Link>CREATE A NEW ACCOUNT</Link>
+          {/*<-- <Link>CREATE A NEW ACCOUNT</Link> -->*/}
         </Form>
         <ButtonContainer>
             <p>Don't have an account?</p>
             <SwitchRegister onClick={openModalRegister}>Register</SwitchRegister>
-      </ButtonContainer>
-      <CloseButton onClick={closeModalLogin}>Close</CloseButton>
+        </ButtonContainer>
+        <ButtonContainer>
+          <p>I am an Administrator</p>
+          <AdminLogin>AdminLog</AdminLogin>
+        </ButtonContainer>
+        <CloseButton onClick={closeModalLogin}>Close</CloseButton>
       </Wrapper>
     </Container>
   );

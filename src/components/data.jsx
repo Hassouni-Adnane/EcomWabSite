@@ -57,4 +57,64 @@ export const prod = [
         img:prod4,
         inf: 'UA Curry 4 _More Rings_ Championship Pack',
     },
+    
+]
+
+export const adminProd = [
+    {
+        id: 1,
+        img:prod1,
+        desc: 'run shoes',
+        title: 'prod1',
+        name: 'prod1',
+    },
+    {
+        id: 2,
+        img: prod2,
+        desc: 'asics',
+        title: 'prod2',
+        name: 'prod2',
+    },
+    {
+        id: 3,
+        img:prod3,
+        desc: 'new Balace',
+        title: 'prod3',
+        name: 'prod3',
+    },
+    {
+        id: 4,
+        img:prod4,
+        desc: 'UA Curry 4 _More Rings_ Championship Pack',
+        title: 'prod4',
+        name: 'prod4',
+    },
+    {
+        id: 1,
+        img: boot1,
+        desc: "Men Letter Patch Decor Lace-up Front Combat Boots",
+        title: "Men Letter Patch Decor Lace-up Front Combat Boots",
+        name: 'boot1',
+    },
+    {
+        id: 2,
+        img: boot2,
+        desc: "Just when we thought our Brooklyn sneaker boots were perfectly designed, we added a side zip to get you outside faster! Powered by recycled plastic bottles, these are going to become this season's go-to pair.",
+        title: "Men's Brooklyn Side-Zip Sneaker Boots",
+        name: 'boot2',
+    },
+    {
+        id: 3,
+        img: boot3,
+        desc: "Argyll, a high leg derby boot with a straight toe cap made from the finest dark brown wax calf with a Dainite rubber sole. Produced on the 379 last, Argyll is from the Men’s Main Collection.",
+        title: "ARGYLL",
+        name: 'boot3',
+    },
+    {
+        id: 4,
+        img: boot4,
+        desc: "Italian Desert Boots are handmade from premium materials, including genuine cow leather for the upper, lining and shaft, and a full grain leather insole. Robust rubber outsoles provide solid footing and heel heights range from 3-5cm. Crafted for luxury, these boots can be expected to arrive within 25-30 days.",
+        title: "TEEK - Italian Desert Boots",
+        name: 'boot4',
+    },
 ]

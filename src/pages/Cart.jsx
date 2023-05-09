@@ -3,7 +3,10 @@ import styled from "styled-components";
 
 
 
-const Container = styled.div``;
+const Container = styled.div`
+  backdrop-filter: blur(8px);
+  height: 100vh;
+`;
 
 const Wrapper = styled.div`
   padding: 20px;
